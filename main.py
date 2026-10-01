@@ -22,9 +22,9 @@ import discord
 from discord import app_commands
 
 TOKEN = os.getenv("DISCORD_TOKEN")
-GUILD_ID = int(os.getenv("GUILD_ID", "0")) or None
-HOST_ROLE_ID = int(os.getenv("HOST_ROLE_ID", "0")) or None
-MP_ROLE_ID = int(os.getenv("MP_ROLE_ID", "0")) or None
+GUILD_ID = int(os.getenv("GUILD_ID", "1554517494474088469")) or None
+HOST_ROLE_ID = int(os.getenv("HOST_ROLE_ID", "1554517494499123210")) or None
+MP_ROLE_ID = int(os.getenv("MP_ROLE_ID", "1555282937639870514")) or None
 
 # ───────────────────────── Описание игр ─────────────────────────
 KINDS = {
@@ -518,4 +518,6 @@ async def ctx_win(interaction: discord.Interaction, message: discord.Message):
 
 
 if __name__ == "__main__":
+    if not TOKEN:
+        raise SystemExit("Не задана переменная окружения DISCORD_TOKEN — добавь токен бота в настройках хостинга.")
     client.run(TOKEN)
